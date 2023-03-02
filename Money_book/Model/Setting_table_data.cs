@@ -1,21 +1,21 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace Money_book.Model
 {
     class Setting_table_data
     {
-        private static int number_ID { get; set; } = 1;
 
         public void Data_initialization(Table_model table_Model)
         {
             Add_ID_Async(table_Model);
             Formation_date_time_Async(table_Model);
         }
+
+
+        private readonly static int Initial_value = 1;
+        private static int number_ID { get; set; } = Initial_value = 1;
 
         private void Add_ID(Table_model table_Model)
         {
