@@ -13,9 +13,8 @@ namespace Money_book.Model
             Formation_date_time_Async(table_Model);
         }
 
-
-        private readonly static int Initial_value = 1;
-        private static int number_ID { get; set; } = Initial_value = 1;
+        private const int INITIAL_VALUE = 1;
+        private static int number_ID { get; set; } = INITIAL_VALUE;
 
         private void Add_ID(Table_model table_Model)
         {
