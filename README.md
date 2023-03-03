@@ -295,3 +295,7 @@ private void Save_Click(object sender, RoutedEventArgs e)
     new Table_model_saving_function(path_EXE_File).Save(table_Models);
 }
 ~~~
+
+Результат розробки
+
+![](https://github.com/TarasLukasuk/Money_book/blob/master/Money_book/Image/Window.png)
