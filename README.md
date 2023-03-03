@@ -273,18 +273,25 @@ private void Window_Loaded(object sender, RoutedEventArgs e)
 Розробити функцію збереження змін даних таблиці
 
 ~~~ C Sharp
-private void Window_Loaded(object sender, RoutedEventArgs e)
+private void table_Models_ListChanged(object? sender, ListChangedEventArgs e)
 {
-    try
+    if (e.ListChangedType==ListChangedType.ItemAdded || 
+        e.ListChangedType == ListChangedType.ItemChanged || 
+        e.ListChangedType == ListChangedType.ItemDeleted)
     {
-        table_Models = new Table_model_loading_function(path_EXE_File).Load();
+        try
+        {
+            new Table_model_saving_function(path_EXE_File).Save(table_Models);
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show(exception.Message);
+            Close();
+        }
     }
-    catch (Exception exception)
-    {
-        MessageBox.Show(exception.Message);
-        Close();
-    }
-    table_Models.ListChanged += table_Models_ListChanged;
-    Table_display.ItemsSource = table_Models;
+}
+private void Save_Click(object sender, RoutedEventArgs e)
+{
+    new Table_model_saving_function(path_EXE_File).Save(table_Models);
 }
 ~~~
